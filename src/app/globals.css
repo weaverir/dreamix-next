@@ -1,20 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "video.js/dist/video-js.css";
 
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
+@font-face {
+    font-family: awsome;
+    font-weight: bold;
+    src: url(./../fonts/awsome.otf);
   }
-  to {
-    transform: rotate(360deg);
+  @font-face {
+    font-family: awsome_b;
+    font-weight: bold;
+    src: url(./../fonts/awsome_b.otf);
   }
-}
+  
+  @font-face {
+    font-family: "Iranian Sans";
+    font-weight: bold;
+    src: url(./../fonts/IRANSansWeb.woff2) ;
+  }
+  @font-face {
+    font-family: "Iranian Sans_medium";
+    font-weight: bold;
+    src: url(./../fonts/IRANSansWeb_Medium.woff2) ;
+  }
+  @font-face {
+    font-family: "Iranian Sans_bold";
+    font-weight: bold;
+    src: url(./../fonts/IRANSansWeb_Bold.woff2) ;
+  }
+  
+  body {
+    @apply transition-colors ease-in duration-500;
+    transform: none !important;
+    /* Apply transition with Tailwind */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none ;
 
-.slow-spin {
-  animation: rotation 5s linear infinite;
-}
-
-.swiper-pagination-bullet {
-  background: #fff !important;
-}
+  }

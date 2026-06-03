@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import Particles, { ParticlesProps } from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { useDarkMode } from "@/contexts/darkmode"; // Import the useDarkMode hook
 
 type InitType = ParticlesProps["init"];
 type InitTypeNonNullable = NonNullable<InitType>;
@@ -10,6 +11,7 @@ type InitParameters = Parameters<InitTypeNonNullable>;
 type Engine = InitParameters[0];
 
 const Particle = () => {
+  const { darkMode } = useDarkMode(); // Get dark mode state from context
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
@@ -18,16 +20,16 @@ const Particle = () => {
 
   return (
     <Particles
-      className="h-screen"
+      className={`${darkMode ? 'bg-gray-900' : 'bg-white'}`} // Apply background class based on dark mode
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fullScreen: { enable: false },
-        fpsLimit: 120,
+        fullScreen: { enable: true },
+        fpsLimit: 60,
         interactivity: {
           events: {
             onHover: {
-              enable: true,
+              enable: false,
               mode: "repulse",
             },
             resize: true,
@@ -41,43 +43,40 @@ const Particle = () => {
         },
         particles: {
           color: {
-            value: "#EE0F0F",
-          },
-          links: {
-            color: "#EE0F0F",
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 2,
+            value: ["#4CB853", "#48639C", "#28A992", "#F8961D", "#E01F27"],
           },
           collisions: {
             enable: true,
           },
           move: {
             enable: true,
-            direction: "top-left",
+            direction: "bottom",
             outModes: {
-              default: "bounce",
+              default: "out",
             },
-            random: true,
+            random: false,
             straight: false,
-            speed: 1,
+            speed: 2,
+            gravity: {
+              enable: false,
+              acceleration: 0,
+            },
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1200,
             },
-            value: 105,
+            value: 20,
           },
           opacity: {
-            value: 0.5,
+            value: 0.6,
           },
           shape: {
-            type: "circle",
+            type: "edge",
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 22, max: 56 },
           },
         },
         detectRetina: true,

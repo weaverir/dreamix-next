@@ -1,0 +1,47 @@
+{
+  "course": {
+    "id": 1,
+    "Category": null,
+    "Teacher": null,
+    "title": "java script",
+    "slug": "java-script",
+    "description": "این دوره برای تازه کار ها است",
+    "price": 1212121,
+    "image": "/media/courses/ez.png",
+    "created_at": "2025-12-25T10:34:44.140038Z",
+    "updated_at": "2025-12-25T10:35:29.586476Z",
+    "is_published": true,
+    "is_visible_on_root": true,
+    "duration": "00:00:14",
+    "totalSessions": 3,
+    "rating": 4.5,
+    "votes": null,
+    "certificateStatus": false,
+    "category": null,
+    "teacher": 1
+  },
+  "sections": [
+    {
+      "id": 1,
+      "intro": [],
+      "lessons": [
+        {
+          "id": 1,
+          "title": "درباره این دوره",
+          "duration": null,
+          "course": 1,
+          "sections_id": 1
+        }
+      ],
+      "title": "اشنایی",
+      "course": 1
+    },
+    {
+      "id": 2,
+      "intro": [],
+      "lessons": [],
+      "title": "نصب java script",
+      "course": 1
+    }
+  ]
+}
